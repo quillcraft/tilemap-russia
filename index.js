@@ -47,38 +47,36 @@
         })
     }
 
-    const handlerMove = popup => {
-        return event => {
-            const { id, code, county, region } = event.target.dataset
+    const getList = dataset => {
+        let listItems = ''
 
-            const params = popup.getBoundingClientRect()
-            const x = Math.floor(event.x - params.width / 2)
-            const y = Math.floor(event.pageY - params.height - 10)
+        for (key in dataset) {
+            listItems += `<li><span>${key}</span> <span>${dataset[key]}</span></li>`
+        }
+
+        return `<ul>${listItems}</ul>`
+    }
+
+    const handlerOver = popup => {
+        return event => {
+            if (!event.target.classList.contains('region')) return
+
+            popup.innerHTML = getList(event.target.dataset)
+
+            const popupRect = popup.getBoundingClientRect()
+            const regionRect = event.target.getBoundingClientRect()
+
+            const x = regionRect.left
+            const y = regionRect.top - popupRect.height
 
             popup.style.transform = `translate(${x}px, ${y}px)`
-            popup.innerHTML = 
-                `<ul>
-                    <li>id: ${id}</li>
-                    <li>code: ${code}</li>
-                    <li>county: ${county}</li>
-                    <li>region: ${region}</li>
-                </ul>`
+            popup.classList.add('active')
         }
     }
 
-    const handlerOver = (result, popup) => {
-        return event => {
-            if (event.target.classList.contains('region')) {
-                popup.classList.add('active')
-                result.addEventListener('mousemove', handlerMove(popup), false)
-            }
-        }
-    }
-
-    const handlerOut = (result, popup) => {
+    const handlerOut = popup => {
         return () => {
             popup.classList.remove('active')
-            result.removeEventListener('mousemove', handlerMove(popup), false)
         }
     }
 
@@ -95,8 +93,8 @@
             body.appendChild(result)
             body.appendChild(popup)
 
-            result.addEventListener('mouseover', handlerOver(result, popup), false)
-            result.addEventListener('mouseout', handlerOut(result, popup), false)
+            result.addEventListener('mouseover', handlerOver(popup), false)
+            result.addEventListener('mouseout', handlerOut(popup), false)
 
         } catch (error) {
             console.error(error)

@@ -21,13 +21,17 @@ svg {
     height: 500px;
 }
 
+rect:hover {
+    fill: #ccc;
+}
+
 text {
     pointer-events: none;
 }
 
 .popup {
-    z-index: -1;
     opacity: 0;
+    pointer-events: none;
 
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, .25);
@@ -36,15 +40,14 @@ text {
     top: 0;
     left: 0;
     padding: 1rem;
-    transform: translate(0px, 0px);
+    transition: transform .1s ease-out;
 }
 
 .popup.active {
-    z-index: 9;
     opacity: 1;
 }
 
 ul {
     margin: 0;
-    padding: 0 0 0 20px;
+    padding: 0 0 0 1.25rem;
 }
