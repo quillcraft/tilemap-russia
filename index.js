@@ -51,7 +51,7 @@
         let listItems = ''
 
         for (key in dataset) {
-            listItems += `<li><span>${key}</span> <span>${dataset[key]}</span></li>`
+            listItems += `<li><span>${key}</span>: <span>${dataset[key]}</span></li>`
         }
 
         return `<ul>${listItems}</ul>`
