@@ -51,10 +51,10 @@
         let listItems = ''
 
         for (key in dataset) {
-            listItems += `<li><span>${key}</span>: <span>${dataset[key]}</span></li>`
+            listItems += `<tr><td>${key}</td><td>${dataset[key]}</td></tr>`
         }
 
-        return `<ul>${listItems}</ul>`
+        return `<table>${listItems}</table>`
     }
 
     const handlerOver = popup => {
