@@ -1,5 +1,5 @@
 (function() {
-    const tilemap = json => {
+    const createTilemap = json => {
         return new Promise((resolve, reject) => {
             try {
                 const xmlns = 'http://www.w3.org/2000/svg'
@@ -74,13 +74,15 @@
 
     const handlerOver = popup => {
         return event => {
-            if (!event.target.classList.contains('region')) return
+            const { target } = event
 
-            const table = getTable(event.target.dataset)
+            if (!target.classList.contains('region')) return
+
+            const table = getTable(target.dataset)
             popup.appendChild(table)
 
             const popupRect = popup.getBoundingClientRect()
-            const regionRect = event.target.getBoundingClientRect()
+            const regionRect = target.getBoundingClientRect()
 
             const x = regionRect.left
             const y = regionRect.top - popupRect.height
@@ -101,16 +103,16 @@
         try {
             const response = await fetch(url)
             const json = await response.json()
-            const result = await tilemap(json)
+            const tilemap = await createTilemap(json)
 
             const popup = document.createElement('div')
             popup.classList.add('popup')
 
-            result.addEventListener('mouseover', handlerOver(popup), false)
-            result.addEventListener('mouseout', handlerOut(popup), false)
+            tilemap.addEventListener('mouseover', handlerOver(popup), false)
+            tilemap.addEventListener('mouseout', handlerOut(popup), false)
 
             const body = document.querySelector('body')
-            body.appendChild(result)
+            body.appendChild(tilemap)
             body.appendChild(popup)
 
         } catch (error) {
