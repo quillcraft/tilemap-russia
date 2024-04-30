@@ -14,7 +14,7 @@
                 json.forEach(tile => {
                     const { id, code, lat, lon, label, name_ru, county_ru } = tile
 
-                    const countyIndex = counties.findIndex(d => d === county_ru)
+                    const countyIndex = counties.sort().findIndex(d => d === county_ru)
 
                     const rect = document.createElementNS(xmlns, 'rect')
                     rect.setAttributeNS(null, 'width', size - gap)

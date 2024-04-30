@@ -21,18 +21,19 @@ body {
 
 svg {
     display: block;
-    width: max(100% - 20px, 850px);
-    height: auto;
+    width: 850px;
+    height: 500px;
 }
 
-.county-0 { fill: #66c2a5; }
-.county-1 { fill: #fc8d62; }
-.county-2 { fill: #8da0cb; }
+.county-0 { fill: #dddddd; }
+.county-1 { fill: #8da0cb; }
+.county-2 { fill: #a6d854; }
 .county-3 { fill: #e78ac3; }
-.county-4 { fill: #a6d854; }
-.county-5 { fill: #ffd92f; }
-.county-6 { fill: #e5c494; }
-.county-7 { fill: #b3b3b3; }
+.county-4 { fill: #e5c494; }
+.county-5 { fill: #fc8d62; }
+.county-6 { fill: #b3b3b3; }
+.county-7 { fill: #ffd92f; }
+.county-8 { fill: #66c2a5; }
 
 rect:hover {
     opacity: .5;

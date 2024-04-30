@@ -141,7 +141,7 @@
     "lat": 7,
     "label": "ДНР",
     "name_ru": "Донецкая НР",
-    "county_ru": "Южный"
+    "county_ru": "-"
   },
   {
     "id": "YEV",
@@ -168,7 +168,7 @@
     "lat": 7,
     "label": "ЗАП",
     "name_ru": "Запорожская область",
-    "county_ru": "Южный"
+    "county_ru": "-"
   },
   {
     "id": "IVA",
@@ -366,7 +366,7 @@
     "lat": 7,
     "label": "ЛНР",
     "name_ru": "Луганская НР",
-    "county_ru": "Южный"
+    "county_ru": "-"
   },
   {
     "id": "MAG",
@@ -735,7 +735,7 @@
     "lat": 8,
     "label": "ХРС",
     "name_ru": "Херсонская область",
-    "county_ru": "Южный"
+    "county_ru": "-"
   },
   {
     "id": "KHM",
