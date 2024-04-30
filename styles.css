@@ -21,8 +21,8 @@ body {
 
 svg {
     display: block;
-    width: 850px;
-    height: 500px;
+    width: max(100% - 20px, 850px);
+    height: auto;
 }
 
 .county-0 { fill: #66c2a5; }

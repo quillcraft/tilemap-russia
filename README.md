@@ -1,5 +1,4 @@
-# Tilemap
-Tilemap of regions of Russia.
+# Tilemap of regions of Russia
 
 Data for creating a map in CSV format ```tilemap.csv```
 
